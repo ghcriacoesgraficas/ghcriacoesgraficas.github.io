@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Portfólio de GH Criações Gráficas: identidade visual, mídias sociais e artes esportivas.">
+<meta name="description" content="PortfÃ³lio de GH CriaÃ§Ãµes GrÃ¡ficas: identidade visual, mÃ­dias sociais, artes esportivas e polÃ­tica.">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>GH Criações Gráficas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -116,7 +116,7 @@ a { color: inherit; }
 .group { display: grid; gap: 16px; }
 .group-title { margin: 0; padding-bottom: 10px; border-bottom: 1px solid var(--line); font: 700 1.05rem/1.2 var(--font-display); font-stretch: 112%; }
 .group-title span { color: var(--muted); font-weight: 500; }
-.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: start; }
 .piece button.thumb.sq, .cta-tile.sq { aspect-ratio: 1 / 1; }
 .piece button.thumb.tall, .cta-tile.tall { aspect-ratio: 9 / 16; }
 .piece { display: grid; gap: 12px; min-width: 0; }
@@ -217,7 +217,7 @@ footer { padding-block: 24px 40px; border-top: 1px solid var(--line); display: f
       <div class="facts">
         <div><b>2015</b><span class="label">Início</span></div>
         <div><b>3.5k+</b><span class="label">Seguidores</span></div>
-        <div><b>18</b><span class="label">Marcas aqui</span></div>
+        <div><b>21</b><span class="label">Marcas aqui</span></div>
       </div>
     </div>
   </section>
@@ -239,6 +239,7 @@ footer { padding-block: 24px 40px; border-top: 1px solid var(--line); display: f
         <button type="button" id="f-all" data-f="all" aria-pressed="true">Todos</button>
         <button type="button" id="f-idv" data-f="idv" aria-pressed="false">Identidade Visual</button>
         <button type="button" id="f-midia" data-f="midia" aria-pressed="false">Mídias Sociais</button>
+        <button type="button" id="f-pol" data-f="pol" aria-pressed="false">Política</button>
         <button type="button" id="f-esp" data-f="esp" aria-pressed="false">Esportivo</button>
       </div>
     </div>
@@ -341,14 +342,38 @@ const WORKS = [
       ["multifibra-20mil.webp", "Chegou: mais de 20 mil filmes e séries", "Post de lançamento"],
       ["multifibra-planos.webp", "Escolha seu plano", "Tabela de planos e combos"],
       ["multifibra-combo.webp", "Combo perfeito para sua casa", "Post de promoção"]]]
-  ].flatMap(([brand, tall, sw, list]) => list.map(([f, t, d]) => ({ img: "img/midias/" + f, t, d, cat: "midia", brand, tall, sw })))
+  ].flatMap(([brand, tall, sw, list]) => list.map(([f, t, d]) => ({ img: "img/midias/" + f, t, d, cat: "midia", brand, tall, sw }))),
+  ...[
+    ["matuto-ficha-limpa.webp", "Ficha limpa", "Post informativo"],
+    ["matuto-agenda-semanal.webp", "Agenda semanal: Onda Amarela", "Agenda de caminhadas"],
+    ["matuto-radio-folha.webp", "Entrevista na Rádio Folha", "Divulgação de entrevista"],
+    ["matuto-sentimento-das-ruas.webp", "O sentimento das ruas", "Resultado de pesquisa"],
+    ["matuto-disparou.webp", "O Matuto disparou!", "Resultado de pesquisa"],
+    ["matuto-4-dias.webp", "4 dias para votar", "Contagem regressiva"],
+    ["matuto-adesivaco.webp", "Adesivaço", "Divulgação de evento"],
+    ["matuto-tv-nova.webp", "Entrevista na TV Nova", "Divulgação de entrevista"]
+  ].map(([f, t, d]) => ({ img: "img/politica/" + f, t, d, cat: "pol", client: "Junior Matuto", sw: ["#ffc400", "#e3261b", "#ff7a00"] })),
+  ...[
+    ["happy-hour-espaco-40555.webp", "Happy hour no Espaço 40555", "Story de evento", "tall"],
+    ["sabadou-espaco-40555.webp", "Sábadou no Espaço 40555", "Story de evento", "tall"],
+    ["bora-nessa-itaiba.webp", "#BoraNessa Itaíba", "Story de agenda", "tall"],
+    ["bora-nessa-mirandiba.webp", "#BoraNessa Mirandiba", "Inauguração do comitê", "tall"],
+    ["inauguracao-espaco-40555.webp", "Inauguração Espaço 40555", "Post de evento", "sq"]
+  ].map(([f, t, d, s]) => ({ img: "img/politica/" + f, t, d, cat: "pol", client: "Rodrigo Novaes", sq: s === "sq", tall: s === "tall", sw: ["#1546b5", "#ffc800", "#ffffff"] })),
+  ...[
+    ["marcelly-mandato-whatsapp.webp", "Faça parte do nosso mandato", "Story de contato no WhatsApp", "tall"],
+    ["marcelly-enem.webp", "O ENEM chegou!", "Story de utilidade pública", "tall"],
+    ["marcelly-audiencia-publica.webp", "Audiência pública: mais creches", "Post de evento", ""],
+    ["marcelly-paulista-90-anos.webp", "Parabéns Paulista, 90 anos", "Post comemorativo", ""]
+  ].map(([f, t, d, s]) => ({ img: "img/politica/" + f, t, d, cat: "pol", client: "Marcelly da Aquarela", tall: s === "tall", sw: ["#ff5a00", "#2a3bff", "#ffffff"] }))
 ];
 const BRANDS = [...new Set(WORKS.filter(w => w.brand).map(w => w.brand))];
-const CLIENTS = [...new Set(WORKS.filter(w => w.client).map(w => w.client))];
+const SUBCATS = { pol: "Política", esp: "Esportivo" };
+const clientsOf = cat => [...new Set(WORKS.filter(w => w.cat === cat && w.client).map(w => w.client))];
 const grid = document.getElementById("grid");
 const sub = document.getElementById("subfilters");
 let filter = "all";
-let client = CLIENTS[0];
+const subSel = {};
 let visible = [];
 let current = 0;
 
@@ -382,13 +407,22 @@ function cta(w) {
     </a>`;
 }
 
+function renderSub() {
+  const list = SUBCATS[filter] ? clientsOf(filter) : [];
+  sub.hidden = !list.length;
+  if (!list.length) return;
+  if (!list.includes(subSel[filter])) subSel[filter] = list[0];
+  sub.setAttribute("aria-label", "Clientes de " + SUBCATS[filter]);
+  sub.innerHTML = list.map((c, i) => `<button type="button" id="c-${filter}-${i}" data-c="${c}" aria-pressed="${c === subSel[filter]}">${c}</button>`).join("");
+}
+
 function render() {
-  sub.hidden = filter !== "esp";
+  renderSub();
   const groups = [];
   if (filter === "all" || filter === "idv") groups.push({ title: filter === "all" ? "Identidade Visual" : "", items: WORKS.filter(w => w.cat === "idv") });
   if (filter === "all" || filter === "midia") BRANDS.forEach(b => groups.push({ title: filter === "all" ? `Mídias Sociais <span>· ${b}</span>` : b, items: WORKS.filter(w => w.brand === b) }));
-  if (filter === "all") CLIENTS.forEach(c => groups.push({ title: `Esportivo <span>· ${c}</span>`, items: WORKS.filter(w => w.client === c) }));
-  if (filter === "esp") groups.push({ title: "", items: WORKS.filter(w => w.client === client) });
+  if (filter === "all") Object.keys(SUBCATS).forEach(cat => clientsOf(cat).forEach(c => groups.push({ title: `${SUBCATS[cat]} <span>· ${c}</span>`, items: WORKS.filter(w => w.client === c) })));
+  if (SUBCATS[filter]) groups.push({ title: "", items: WORKS.filter(w => w.client === subSel[filter]) });
   visible = groups.flatMap(g => g.items);
   let n = 0;
   grid.innerHTML = groups.map((g, gi) => `
@@ -398,13 +432,11 @@ function render() {
     </section>`).join("");
 }
 
-sub.innerHTML = CLIENTS.map((c, i) => `<button type="button" id="c-${i}" data-c="${c}" aria-pressed="${i === 0}">${c}</button>`).join("");
-sub.querySelectorAll("button").forEach(b => {
-  b.addEventListener("click", () => {
-    sub.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
-    client = b.dataset.c;
-    render();
-  });
+sub.addEventListener("click", e => {
+  const b = e.target.closest("button");
+  if (!b) return;
+  subSel[filter] = b.dataset.c;
+  render();
 });
 
 document.querySelectorAll(".filters:not(.sub) button").forEach(b => {
@@ -422,7 +454,7 @@ function show(i) {
   const w = visible[current];
   document.getElementById("lb-img").src = w.img;
   document.getElementById("lb-img").alt = `${w.t}: ${w.d}`;
-  document.getElementById("lb-kind").textContent = `${w.client ? "Esportivo · " + w.client : w.brand ? "Mídias sociais · " + w.brand : "Identidade visual · " + w.y}`;
+  document.getElementById("lb-kind").textContent = `${w.client ? SUBCATS[w.cat] + " · " + w.client : w.brand ? "Mídias sociais · " + w.brand : "Identidade visual · " + w.y}`;
   document.getElementById("lb-title").textContent = w.t;
   document.getElementById("lb-desc").textContent = w.d;
   document.getElementById("lb-sw").innerHTML = swatches(w.sw).replace(/^<span class="swatches" aria-hidden="true">|<\/span>$/g, "");
