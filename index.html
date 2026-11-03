@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfólio de GH Criações Gráficas: identidade visual, mídias sociais e artes esportivas.">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>GH Criações Gráficas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112..125,500..900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: brand-presentation board. Wide wordmark hero, a filterable 4:5 grid that mirrors the Instagram feed, each piece carrying its own palette swatches. */
+:root {
+  --bg: #0b0c0e;
+  --panel: #15171b;
+  --line: #2a2d33;
+  --fg: #eceef1;
+  --muted: #8d929b;
+  --chrome-a: #ffffff;
+  --chrome-b: #7d838d;
+  --font-display: "Archivo", "Arial Black", "Helvetica Neue", sans-serif;
+  --font-body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #eceef1; --panel: #ffffff; --line: #d3d6dc; --fg: #0b0c0e; --muted: #5d626b;
+    --chrome-a: #0b0c0e; --chrome-b: #6b717b; color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #eceef1; --panel: #ffffff; --line: #d3d6dc; --fg: #0b0c0e; --muted: #5d626b;
+  --chrome-a: #0b0c0e; --chrome-b: #6b717b; color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 1rem/1.6 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+
+.label {
+  font: 500 0.7rem/1.2 var(--font-mono);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Top bar */
+.top {
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  padding-block: 22px;
+  border-bottom: 1px solid var(--line);
+}
+.top .mark { font: 900 1.1rem/1 var(--font-display); font-stretch: 125%; letter-spacing: -0.02em; text-decoration: none; }
+.top nav { display: flex; gap: 22px; flex-wrap: wrap; }
+.top nav a { text-decoration: none; font-size: 0.9rem; color: var(--muted); }
+.top nav a:hover { color: var(--fg); }
+
+/* Hero */
+.hero { padding-block: clamp(48px, 9vw, 110px) clamp(40px, 6vw, 72px); display: grid; gap: 28px; }
+.wordmark {
+  margin: 0;
+  font: 900 clamp(4.5rem, 19vw, 15rem)/0.82 var(--font-display);
+  font-stretch: 125%;
+  letter-spacing: -0.045em;
+  background: linear-gradient(165deg, var(--chrome-a) 18%, var(--chrome-b) 52%, var(--chrome-a) 78%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.wordmark sup { font-size: 0.18em; vertical-align: top; letter-spacing: 0; position: relative; top: 0.5em; }
+.hero-row { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 32px; align-items: end; }
+.hero h1 {
+  margin: 0; max-width: 22ch;
+  font: 700 clamp(1.5rem, 3.4vw, 2.4rem)/1.15 var(--font-display);
+  font-stretch: 112%; letter-spacing: -0.015em; text-wrap: balance;
+}
+.facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); }
+.facts div { padding: 14px 12px 0 0; display: grid; gap: 4px; }
+.facts b { font: 800 1.5rem/1 var(--font-display); font-stretch: 112%; font-variant-numeric: tabular-nums; }
+
+/* Services */
+.services { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-block: 1px solid var(--line); }
+.services div { padding: 22px 18px 24px 0; display: grid; gap: 6px; align-content: start; }
+.services div + div { padding-left: 18px; border-left: 1px solid var(--line); }
+.services h3 { margin: 0; font: 700 1.05rem/1.2 var(--font-display); font-stretch: 112%; }
+.services p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+
+/* Work */
+.work { padding-block: 72px 40px; display: grid; gap: 28px; }
+.work-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; }
+.work-head h2 { margin: 0; font: 800 clamp(1.8rem, 4vw, 2.8rem)/1 var(--font-display); font-stretch: 118%; letter-spacing: -0.02em; }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; }
+.filters button {
+  font: 500 0.85rem/1 var(--font-body);
+  padding: 9px 14px; border-radius: 999px; cursor: pointer;
+  background: transparent; color: var(--muted); border: 1px solid var(--line);
+}
+.filters button:hover { color: var(--fg); }
+.filters button[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+.filters.sub { margin-top: -12px; padding-left: 14px; border-left: 1px solid var(--line); }
+.filters.sub button { font-size: 0.8rem; padding: 7px 12px; }
+.groups { display: grid; gap: 44px; }
+.group { display: grid; gap: 16px; }
+.group-title { margin: 0; padding-bottom: 10px; border-bottom: 1px solid var(--line); font: 700 1.05rem/1.2 var(--font-display); font-stretch: 112%; }
+.group-title span { color: var(--muted); font-weight: 500; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.piece button.thumb.sq, .cta-tile.sq { aspect-ratio: 1 / 1; }
+.piece button.thumb.tall, .cta-tile.tall { aspect-ratio: 9 / 16; }
+.piece { display: grid; gap: 12px; min-width: 0; }
+.piece button.thumb {
+  all: unset; cursor: zoom-in; display: block; position: relative; overflow: hidden;
+  aspect-ratio: 4 / 5; max-width: 100%; background: var(--panel);
+}
+.piece button.thumb:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+.piece img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.piece button.thumb:hover img { transform: scale(1.035); }
+.meta { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
+.meta h3 { margin: 0; font: 700 1rem/1.25 var(--font-display); font-stretch: 112%; }
+.meta p { margin: 2px 0 0; color: var(--muted); font-size: 0.86rem; }
+.swatches { display: flex; flex-shrink: 0; padding-top: 3px; }
+.swatches i { width: 14px; height: 14px; border-radius: 50%; border: 1px solid var(--line); }
+.swatches i + i { margin-left: -4px; }
+
+.cta-tile {
+  aspect-ratio: 4 / 5; max-width: 100%;
+  border: 1px dashed var(--line);
+  display: grid; align-content: space-between; padding: 24px;
+  text-decoration: none;
+}
+.cta-tile strong { font: 800 clamp(1.4rem, 2.6vw, 2rem)/1.05 var(--font-display); font-stretch: 118%; letter-spacing: -0.015em; text-wrap: balance; }
+.cta-tile span.go { font-weight: 600; }
+.cta-tile:hover { border-style: solid; border-color: var(--fg); }
+
+/* Contact */
+.contact { padding-block: 64px; border-top: 1px solid var(--line); display: grid; gap: 22px; }
+.contact h2 { margin: 0; max-width: 18ch; font: 800 clamp(2rem, 5.5vw, 4rem)/1 var(--font-display); font-stretch: 118%; letter-spacing: -0.025em; text-wrap: balance; }
+.links { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 20px; text-decoration: none; font-weight: 600;
+  border: 1px solid var(--fg);
+}
+.btn.primary { background: var(--fg); color: var(--bg); }
+.btn:hover { opacity: .85; }
+footer { padding-block: 24px 40px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+/* Lightbox */
+.lb {
+  position: fixed; inset: 0; z-index: 20;
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
+  display: grid; place-items: center;
+  padding: max(20px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(20px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+}
+.lb-inner { display: grid; grid-template-columns: auto minmax(0, 320px); gap: 32px; align-items: end; max-height: 100%; }
+.lb img { max-height: min(78vh, 760px); width: auto; max-width: 100%; display: block; }
+.lb-info { display: grid; gap: 14px; }
+.lb-info h3 { margin: 0; font: 800 1.8rem/1.05 var(--font-display); font-stretch: 118%; }
+.lb-info p { margin: 0; color: var(--muted); }
+.lb-close {
+  position: absolute; top: max(16px, env(safe-area-inset-top, 0px)); right: max(16px, env(safe-area-inset-right, 0px));
+  background: none; border: 1px solid var(--line); color: var(--fg);
+  font: 500 0.8rem/1 var(--font-mono); letter-spacing: .15em; text-transform: uppercase; padding: 10px 14px; cursor: pointer;
+}
+.lb-nav { display: flex; gap: 8px; }
+.lb-nav button { background: none; border: 1px solid var(--line); color: var(--fg); padding: 10px 14px; cursor: pointer; font: inherit; }
+
+@media (max-width: 860px) {
+  .hero-row { grid-template-columns: minmax(0, 1fr); }
+  .services { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .services div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .services div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .lb-inner { grid-template-columns: minmax(0, 1fr); gap: 18px; justify-items: center; }
+  .lb img { max-height: 62vh; }
+}
+@media (max-width: 520px) {
+  .top nav { gap: 14px; }
+  .top nav a:not(.keep) { display: none; }
+  .grid { gap: 10px; }
+  .meta { flex-direction: column; gap: 6px; }
+  .meta h3 { font-size: 0.9rem; }
+  .cta-tile { padding: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="#topo">GH®</a>
+    <nav aria-label="Seções">
+      <a href="#servicos">Serviços</a>
+      <a href="#trabalhos">Trabalhos</a>
+      <a class="keep" href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="topo">
+    <span class="label">Designer gráfico · desde 2015</span>
+    <p class="wordmark" aria-hidden="true">GH<sup>®</sup></p>
+    <div class="hero-row">
+      <h1>Identidades visuais e peças para redes sociais que fazem sua marca ser reconhecida.</h1>
+      <div class="facts">
+        <div><b>2015</b><span class="label">Início</span></div>
+        <div><b>3.5k+</b><span class="label">Seguidores</span></div>
+        <div><b>18</b><span class="label">Marcas aqui</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="servicos" aria-label="Serviços">
+    <div><span class="label">Serviço</span><h3>Identidade Visual</h3><p>Logo, paleta, tipografia e apresentação da marca.</p></div>
+    <div><span class="label">Serviço</span><h3>Mídias Sociais</h3><p>Posts e artes para o feed com a cara da sua marca.</p></div>
+    <div><span class="label">Serviço</span><h3>Flyer Esportivo</h3><p>Artes de jogo, clássico e anúncio de partida.</p></div>
+    <div><span class="label">Serviço</span><h3>Impressos</h3><p>Cartões, panfletos e materiais para gráfica.</p></div>
+  </section>
+
+  <section class="work" id="trabalhos">
+    <div class="work-head">
+      <div>
+        <span class="label">Portfólio</span>
+        <h2>Trabalhos selecionados</h2>
+      </div>
+      <div class="filters" role="group" aria-label="Filtrar trabalhos">
+        <button type="button" id="f-all" data-f="all" aria-pressed="true">Todos</button>
+        <button type="button" id="f-idv" data-f="idv" aria-pressed="false">Identidade Visual</button>
+        <button type="button" id="f-midia" data-f="midia" aria-pressed="false">Mídias Sociais</button>
+        <button type="button" id="f-esp" data-f="esp" aria-pressed="false">Esportivo</button>
+      </div>
+    </div>
+    <div class="filters sub" id="subfilters" role="group" aria-label="Clientes do esportivo" hidden></div>
+    <div class="groups" id="grid"></div>
+  </section>
+
+  <section class="contact" id="contato">
+    <span class="label">Contato</span>
+    <h2>Vamos criar a identidade da sua marca?</h2>
+    <div class="links">
+      <a class="btn primary" href="https://contate.me/ghcriacoesgraficas" target="_blank" rel="noopener">Pedir orçamento →</a>
+      <a class="btn" href="https://www.instagram.com/ghcriacoesgraficas/" target="_blank" rel="noopener">@ghcriacoesgraficas</a>
+    </div>
+  </section>
+
+  <footer>
+    <span class="label">GH® Criações Gráficas</span>
+    <span class="label">O Dono do Lugar é Deus</span>
+  </footer>
+</div>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-labelledby="lb-title">
+  <button class="lb-close" id="lb-close" type="button">Fechar ✕</button>
+  <div class="lb-inner">
+    <img id="lb-img" alt="">
+    <div class="lb-info">
+      <span class="label" id="lb-kind"></span>
+      <h3 id="lb-title"></h3>
+      <p id="lb-desc"></p>
+      <div class="swatches" id="lb-sw"></div>
+      <a class="btn" id="lb-link" target="_blank" rel="noopener">Ver no Instagram</a>
+      <div class="lb-nav">
+        <button type="button" id="lb-prev" aria-label="Anterior">←</button>
+        <button type="button" id="lb-next" aria-label="Próximo">→</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const IG = "https://www.instagram.com/ghcriacoesgraficas/p/";
+const WORKS = [
+  { img: "img/mz-moda-fitness.jpg", t: "MZ Moda Fitness", d: "Moda fitness", y: 2026, cat: "idv", post: "DYQDKMmFpHR", sw: ["#5a1a99", "#e8318a", "#ffffff"] },
+  { img: "img/tia-ray.jpg", t: "Tia Ray Football Kids", d: "Escolinha de futebol infantil", y: 2026, cat: "idv", post: "DWPTkn6iZ3v", sw: ["#e0218a", "#6a2bd9", "#111111"] },
+  { img: "img/valenca-barbosa-caldas.jpg", t: "Valença, Barbosa & Caldas", d: "Advogados associados", y: 2026, cat: "idv", post: "DVgmKFTjt1r", sw: ["#0e4a66", "#c9a97a", "#ffffff"] },
+  { img: "img/saborelli.jpg", t: "Saborelli", d: "Salgados & Cia", y: 2025, cat: "idv", post: "DRKr80Mjqc6", sw: ["#f2423f", "#ffc21a", "#ffffff"] },
+  { img: "img/natalia-araujo.jpg", t: "Natália Araújo", d: "Advogados associados", y: 2025, cat: "idv", post: "DNBHQWtOPKe", sw: ["#000000", "#b8876a", "#ffffff"] },
+  { img: "img/kadu-repair.jpg", t: "Kadu Repair", d: "Assistência técnica", y: 2025, cat: "idv", post: "DMvV2iQOEQg", sw: ["#1e6fe0", "#ffffff", "#000000"] },
+  { img: "img/rhuan-da-uniao.jpg", t: "Rhuan da União", d: "Marca pessoal", y: 2025, cat: "idv", post: "DMLDN78uwx6", sw: ["#000000", "#ffffff", "#f5c518"] },
+  { img: "img/klnet-fibra.jpg", t: "KLNET Fibra", d: "Provedor de internet", y: 2025, cat: "idv", post: "DL7myw1uOa2", sw: ["#0f0f3d", "#e04c7a", "#f07a3a"] },
+  { img: "img/wepro.jpg", t: "Wepro Acessórios", d: "Loja de acessórios", y: 2025, cat: "idv", post: "DLinCn9OeDu", sw: ["#ffc400", "#111111"] },
+  { img: "img/crystalle.jpg", t: "Crystalle", d: "Laser & estética", y: 2025, cat: "idv", post: "DLC9uWlOFif", sw: ["#c47f56", "#fbf3ea"] },
+  { img: "img/karoline-saldanha.jpg", t: "Karoline Saldanha", d: "Estética avançada facial", y: 2025, cat: "idv", post: "DKcV6FxuY1G", sw: ["#e0d1b3", "#6e4a33"] },
+  ...[
+    ["kieza-parabens.webp", "Parabéns, Kieza", "Aniversário de jogador"],
+    ["campeao-copa-ne-sub20.webp", "Campeão Copa do Nordeste Sub-20", "Arte de título"],
+    ["martin-gimenez.webp", "Bem-vindo, Martín Giménez", "Anúncio de contratação"],
+    ["kuki-20-anos.webp", "Kuki, 20 anos de Náutico", "Homenagem a ídolo"],
+    ["live-matheus-carvalho.webp", "Live com Matheus Carvalho", "Divulgação de live"],
+    ["gilson-kleina.webp", "Bem-vindo, Gilson Kleina", "Anúncio de técnico"],
+    ["escalacao-operario.jpg", "Escalação: Náutico × Operário", "Arte de escalação"],
+    ["nautico-x-central.jpg", "Hoje tem: Náutico × Central", "Arte de dia de jogo"]
+  ].map(([f, t, d]) => ({ img: "img/nautico/" + f, t, d, y: 2020, cat: "esp", client: "Clube Náutico Capibaribe (2020)", sq: true, sw: ["#d7182a", "#ffffff"] })),
+  ...[
+    ["hugo-cabral.webp", "Contratado: Hugo Cabral", "Anúncio de contratação"],
+    ["chega-junto.webp", "Chega Junto!", "Campanha camisa + ingresso"],
+    ["tricolor-escalado.webp", "Tricolor escalado", "Arte de escalação"],
+    ["hoje-tem-santa.webp", "Hoje tem Santa", "Arte de dia de jogo · Série D"],
+    ["aqui-e-santa.webp", "Aqui é Santa!", "Arte de engajamento"],
+    ["santa-cruz-x-retro.webp", "Santa Cruz × Retrô", "Jogo antecipado · Pernambucano 2022"],
+    ["obrigado-torcida.webp", "Obrigado, torcida coral!", "Agradecimento à torcida"],
+    ["proximo-desafio.png", "Próximo desafio: Santa Cruz × Náutico", "Semifinal · Pernambucano 2022"]
+  ].map(([f, t, d]) => ({ img: "img/santa-cruz/" + f, t, d, cat: "esp", client: "Santa Cruz FC (2022)", sq: true, sw: ["#111111", "#e1251b", "#ffffff"] })),
+  ...[
+    ["avai-x-chapecoense.webp", "Avaí × Chapecoense", "Grande final · Catarinense 2025", ["#1b7fc4", "#ffffff", "#e8b923"]],
+    ["sport-x-santa-cruz.webp", "Sport × Santa Cruz", "Pernambucano 2025", ["#e3261b", "#111111", "#e8c21f"]],
+    ["liverpool-x-newcastle.webp", "Liverpool × Newcastle", "Final · Copa da Liga Inglesa", ["#111111", "#ffffff", "#8fb4c2"]],
+    ["argentina-x-brasil.webp", "Argentina × Brasil", "Eliminatórias da Copa do Mundo", ["#f7b500", "#1a9a5c", "#1d4fb8"]],
+    ["nautico-x-amazonas.webp", "Náutico × Amazonas", "Arte de dia de jogo", ["#e1201e", "#ffffff"]]
+  ].map(([f, t, d, sw]) => ({ img: "img/match-day/" + f, t, d, cat: "esp", client: "Match Day", tall: true, sw })),
+  ...[
+    ["LS Construções e Locações", false, ["#0d2c8c", "#f59c00", "#ffffff"], [
+      ["ls-dica-rapida.webp", "Dica rápida para sua obra", "Post educativo"],
+      ["ls-economize.webp", "Economize tempo e dinheiro", "Post institucional"],
+      ["ls-construir.webp", "Está pensando em construir?", "Post de serviço"]]],
+    ["William Imports", true, ["#ffc400", "#e10600", "#111111"], [
+      ["william-semana-consumidor.webp", "Semana do Consumidor", "Story de promoção e sorteio"],
+      ["william-avaliacao.webp", "Melhor avaliação no seu iPhone usado", "Story de serviço"],
+      ["william-pre-venda.webp", "Pré-venda iPhone 16 Pro Max", "Story de pré-venda"]]],
+    ["Timbar", false, ["#c8102e", "#1d2f6f", "#ffffff"], [
+      ["timbar-sabado.webp", "Sábado no Timbar", "Programação do fim de semana"],
+      ["timbar-vem-torcer.webp", "Vem torcer aqui!", "Jogo no telão + promoção de chopp"],
+      ["timbar-decisao.webp", "Amanhã é dia de decisão", "Copa do Nordeste · promoção de chopp"]]],
+    ["Pepeu Net Fibra", true, ["#0f3fa8", "#f57c00", "#ffffff"], [
+      ["pepeu-indicou.webp", "Indicou? Ganhou!", "Story de indicação"],
+      ["pepeu-turbo-mais.webp", "Turbo Mais 800 Mega", "Story de plano"],
+      ["pepeu-musicas.webp", "Ouça suas músicas sem travar", "Story de produto"]]],
+    ["Multifibra", false, ["#ff6a00", "#6a1fb3", "#ffd200"], [
+      ["multifibra-20mil.webp", "Chegou: mais de 20 mil filmes e séries", "Post de lançamento"],
+      ["multifibra-planos.webp", "Escolha seu plano", "Tabela de planos e combos"],
+      ["multifibra-combo.webp", "Combo perfeito para sua casa", "Post de promoção"]]]
+  ].flatMap(([brand, tall, sw, list]) => list.map(([f, t, d]) => ({ img: "img/midias/" + f, t, d, cat: "midia", brand, tall, sw })))
+];
+const BRANDS = [...new Set(WORKS.filter(w => w.brand).map(w => w.brand))];
+const CLIENTS = [...new Set(WORKS.filter(w => w.client).map(w => w.client))];
+const grid = document.getElementById("grid");
+const sub = document.getElementById("subfilters");
+let filter = "all";
+let client = CLIENTS[0];
+let visible = [];
+let current = 0;
+
+function swatches(list) {
+  return `<span class="swatches" aria-hidden="true">${list.map(c => `<i style="background:${c}"></i>`).join("")}</span>`;
+}
+
+function card(w, i) {
+  return `
+    <article class="piece">
+      <button class="thumb${shape(w)}" type="button" data-i="${i}" aria-label="Ampliar ${w.t}">
+        <img src="${w.img}" alt="${w.t}: ${w.d}" loading="lazy" width="512" height="${w.sq ? 512 : w.tall ? 910 : 640}">
+      </button>
+      <div class="meta">
+        <div><h3>${w.t}</h3><p>${w.d}${w.y ? " · " + w.y : ""}</p></div>
+        ${swatches(w.sw)}
+      </div>
+    </article>`;
+}
+
+function shape(w) {
+  return w && w.sq ? " sq" : w && w.tall ? " tall" : "";
+}
+
+function cta(w) {
+  return `
+    <a class="cta-tile${shape(w)}" href="#contato">
+      <span class="label">Próximo projeto</span>
+      <strong>Sua marca pode ser a próxima aqui.</strong>
+      <span class="go">Fale comigo →</span>
+    </a>`;
+}
+
+function render() {
+  sub.hidden = filter !== "esp";
+  const groups = [];
+  if (filter === "all" || filter === "idv") groups.push({ title: filter === "all" ? "Identidade Visual" : "", items: WORKS.filter(w => w.cat === "idv") });
+  if (filter === "all" || filter === "midia") BRANDS.forEach(b => groups.push({ title: filter === "all" ? `Mídias Sociais <span>· ${b}</span>` : b, items: WORKS.filter(w => w.brand === b) }));
+  if (filter === "all") CLIENTS.forEach(c => groups.push({ title: `Esportivo <span>· ${c}</span>`, items: WORKS.filter(w => w.client === c) }));
+  if (filter === "esp") groups.push({ title: "", items: WORKS.filter(w => w.client === client) });
+  visible = groups.flatMap(g => g.items);
+  let n = 0;
+  grid.innerHTML = groups.map((g, gi) => `
+    <section class="group">
+      ${g.title ? `<h3 class="group-title">${g.title}</h3>` : ""}
+      <div class="grid">${g.items.map(w => card(w, n++)).join("")}${gi === groups.length - 1 ? cta(g.items[0]) : ""}</div>
+    </section>`).join("");
+}
+
+sub.innerHTML = CLIENTS.map((c, i) => `<button type="button" id="c-${i}" data-c="${c}" aria-pressed="${i === 0}">${c}</button>`).join("");
+sub.querySelectorAll("button").forEach(b => {
+  b.addEventListener("click", () => {
+    sub.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
+    client = b.dataset.c;
+    render();
+  });
+});
+
+document.querySelectorAll(".filters:not(.sub) button").forEach(b => {
+  b.addEventListener("click", () => {
+    document.querySelectorAll(".filters:not(.sub) button").forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
+    filter = b.dataset.f;
+    render();
+  });
+});
+
+const lb = document.getElementById("lb");
+let lastFocus = null;
+function show(i) {
+  current = (i + visible.length) % visible.length;
+  const w = visible[current];
+  document.getElementById("lb-img").src = w.img;
+  document.getElementById("lb-img").alt = `${w.t}: ${w.d}`;
+  document.getElementById("lb-kind").textContent = `${w.client ? "Esportivo · " + w.client : w.brand ? "Mídias sociais · " + w.brand : "Identidade visual · " + w.y}`;
+  document.getElementById("lb-title").textContent = w.t;
+  document.getElementById("lb-desc").textContent = w.d;
+  document.getElementById("lb-sw").innerHTML = swatches(w.sw).replace(/^<span class="swatches" aria-hidden="true">|<\/span>$/g, "");
+  const link = document.getElementById("lb-link");
+  link.hidden = !w.post;
+  if (w.post) link.href = IG + w.post + "/";
+}
+function openLb(i) { lastFocus = document.activeElement; show(i); lb.hidden = false; document.getElementById("lb-close").focus(); }
+function closeLb() { lb.hidden = true; if (lastFocus) lastFocus.focus(); }
+
+grid.addEventListener("click", e => {
+  const t = e.target.closest("button.thumb");
+  if (t) openLb(+t.dataset.i);
+});
+document.getElementById("lb-close").addEventListener("click", closeLb);
+document.getElementById("lb-prev").addEventListener("click", () => show(current - 1));
+document.getElementById("lb-next").addEventListener("click", () => show(current + 1));
+lb.addEventListener("click", e => { if (e.target === lb) closeLb(); });
+document.addEventListener("keydown", e => {
+  if (lb.hidden) return;
+  if (e.key === "Escape") closeLb();
+  if (e.key === "ArrowLeft") show(current - 1);
+  if (e.key === "ArrowRight") show(current + 1);
+});
+
+render();
+</script>
+
+</body>
+</html>
